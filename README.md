@@ -6,8 +6,12 @@
 ### environments for postgres to work
 
 #### Gems used for this project include
-#### better_errors 2.7.1 -> Provides a better error page for Rails and other Rack apps. Includes source code #### inspection, a live REPL and local/instance variable inspection for all stack frames.
-#### 
+#### better_errors 2.7.1 -> Provides a better error page for Rails and other Rack apps. Includes source code inspection, a live REPL and local/instance variable inspection for all stack frames.
+#### bulma-rails for Bulma styling
+#### Guard and Guard Live Reload
+#### gravatarify for Gravatar images
+#### simple form
+#### Devise for user authentication and signups
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
