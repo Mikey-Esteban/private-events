@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/journal/bulmaswatch.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
 
   <body>
@@ -16,15 +17,69 @@
     <p class="alert"><%= alert %></p>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://versions.bulma.io/0.7.0">
-          <img src="https://versions.bulma.io/0.7.0/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
+          </a>
+
+          <a class="navbar-item">
+            Documentation
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About
+              </a>
+              <a class="navbar-item">
+                Jobs
+              </a>
+              <a class="navbar-item">
+                Contact
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="level">
+              <% if user_signed_in? %>
+                <p class="level-item"><%= current_user.name.nil? ? current_user.email : current_user.name %></p>
+                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+              <% else %>
+                <div class="buttons">
+                  <a class="button is-primary" href="<%= new_user_registration_path %>">
+                    <strong>Sign up</strong>
+                  </a>
+                  <a class="button is-light" href="<%= new_user_session_path %>">
+                    Log in
+                  </a>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
     <section class="section">
